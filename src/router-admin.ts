@@ -1,12 +1,18 @@
 import express from 'express';
 const routerAdmin = express.Router();
-import restaurantController from './controllers/technomarket.controller';
+import technomarket from './controllers/technomarket.controller';
 
+/* TexnoMart */
+routerAdmin.get('/', technomarket.goHome);
 
-routerAdmin.get('/', restaurantController.goHome);
+routerAdmin
+.get('/login', technomarket.getLogin)
+.post('/login', technomarket.processLogin);
 
-routerAdmin.get('/login', restaurantController.getLogin);
+routerAdmin
+.get('/signup', technomarket.getSignup)
+.post('/signup', technomarket.processSignup);
 
-routerAdmin.get('/signup', restaurantController.getSignup);
-
+/* Product */
+/* User */
 export default routerAdmin;

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import router from "./router";
+import routerAdmin from "./router-admin";
 
 /** 1-ENTRANCE */
 const app = express();
@@ -16,6 +17,7 @@ app.set('views', path.join(__dirname, "views"));
 app.set('view engine', "ejs");
 
 /** 4-ROUTERS */
-app.use('/', router);
+app.use('/', router); // SPA
+app.use('/admin', routerAdmin); // BSSR
 
 export default app;  

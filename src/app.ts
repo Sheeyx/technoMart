@@ -2,11 +2,14 @@ import express from "express";
 import path from "path";
 import router from "./router";
 import routerAdmin from "./router-admin";
+import morgan from 'morgan';
+import { MORGAN_FORMAT } from "./libs/config";
 
 /** 1-ENTRANCE */
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(morgan(MORGAN_FORMAT));
 
 app.use(express.static(path.join(__dirname, "public")));
 
